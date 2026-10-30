@@ -333,7 +333,7 @@ def main():
 
                 st.markdown(f'<div class="caption-box">{st.session_state["caption"]}</div>', unsafe_allow_html=True)
 
-                # Offline English TTS controls
+                # English Neural TTS controls
                 col_tts_btn, col_tts_player = st.columns([1, 3], vertical_alignment="center")
                 with col_tts_btn:
                     tts_btn = st.button("Listen (English)", use_container_width=True)
@@ -348,7 +348,7 @@ def main():
 
                 with col_tts_player:
                     if st.session_state.get("tts_audio"):
-                        st.audio(st.session_state["tts_audio"], format="audio/wav")
+                        st.audio(st.session_state["tts_audio"], format="audio/mp3")
 
             # E. MULTILINGUAL TRANSLATION SECTION
             with st.container(border=True):

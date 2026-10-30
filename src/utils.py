@@ -1,14 +1,12 @@
 """
-Utility functions for Multilingual Translation and Cross-Platform Text-to-Speech.
+Utility functions for Multilingual Translation and Neural Text-to-Speech.
 """
-import os
-import sys
-import platform
-import tempfile
+import asyncio
+import concurrent.futures
 import logging
-import subprocess
-import shutil
+import time
 from typing import Optional
+import edge_tts
 import requests
 from deep_translator import GoogleTranslator, MyMemoryTranslator
 
@@ -21,6 +19,10 @@ SUPPORTED_LANGUAGES = {
     "Kannada": {"code": "kn", "mymemory": "kn-IN"},
     "Malayalam": {"code": "ml", "mymemory": "ml-IN"},
 }
+
+# High-quality Microsoft Neural Voice (Indian English) used consistently on Windows and Linux
+TTS_VOICE = "en-IN-NeerjaNeural"
+
 
 def translate_caption(text: str, target_language: str) -> str:
     """
@@ -76,141 +78,61 @@ def translate_caption(text: str, target_language: str) -> str:
 
     raise RuntimeError("Translation service unavailable. Please try again.")
 
+
+async def _synthesize_edge_tts(text: str) -> bytes:
+    """
+    Internal coroutine to stream MP3 audio chunks from edge-tts.
+    """
+    communicate = edge_tts.Communicate(text, TTS_VOICE, connect_timeout=20)
+    audio_chunks = []
+    async for chunk in communicate.stream():
+        if chunk["type"] == "audio":
+            audio_chunks.append(chunk["data"])
+    return b"".join(audio_chunks)
+
+
 def generate_speech(text: str) -> bytes:
     """
-    Synthesizes speech from English caption text into WAV audio.
-    Supports both Windows and Linux (Streamlit Community Cloud):
-    - Windows: Uses Microsoft SAPI5 via pyttsx3 with thread-safe COM handling.
-    - Linux: Uses eSpeak / eSpeak-ng via pyttsx3 with a direct system eSpeak CLI fallback.
+    Synthesizes speech from English caption text into MP3 audio using edge-tts
+    with Microsoft Neural voice 'en-IN-NeerjaNeural'.
     
+    Ensures identical, natural-sounding voice output across both Windows localhost
+    and Linux Streamlit Community Cloud. Execution is safely isolated in a dedicated
+    thread with its own event loop to guarantee compatibility with Streamlit's runtime.
+
     Args:
         text (str): English caption to convert to speech.
         
     Returns:
-        bytes: Raw WAV audio bytes suitable for Streamlit st.audio().
+        bytes: Raw MP3 audio bytes suitable for Streamlit st.audio().
     """
     if not text or not text.strip():
         raise ValueError("Cannot synthesize speech for empty text.")
         
     clean_text = text.strip()
-    current_os = platform.system()
-    temp_path = None
-    
-    # ----------------------------------------------------
-    # WINDOWS: Microsoft SAPI5 via pyttsx3
-    # ----------------------------------------------------
-    if current_os == "Windows":
-        try:
-            import pythoncom
-            pythoncom.CoInitialize()
-        except Exception as e:
-            logger.debug(f"pythoncom.CoInitialize() skipped or failed: {e}")
 
-        try:
-            import pyttsx3
+    def _run_in_isolated_thread() -> bytes:
+        last_error = None
+        for attempt in range(2):
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
             try:
-                engine = pyttsx3.init("sapi5")
-            except Exception:
-                engine = pyttsx3.init()
-                
-            engine.setProperty("rate", 160)
-            
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
-                temp_path = fp.name
-                
-            engine.save_to_file(clean_text, temp_path)
-            engine.runAndWait()
-            
-            if os.path.exists(temp_path) and os.path.getsize(temp_path) > 0:
-                with open(temp_path, "rb") as f:
-                    audio_bytes = f.read()
-                return audio_bytes
-            else:
-                raise RuntimeError("Audio file was not generated or is empty.")
-        except Exception as e:
-            logger.error(f"Windows Text-to-Speech failed: {e}")
-            raise RuntimeError(f"Text-to-Speech failed on Windows (SAPI5): {e}")
-        finally:
-            if temp_path and os.path.exists(temp_path):
-                try:
-                    os.remove(temp_path)
-                except Exception:
-                    pass
-            try:
-                import pythoncom
-                pythoncom.CoUninitialize()
-            except Exception:
-                pass
-
-    # ----------------------------------------------------
-    # LINUX (Streamlit Community Cloud) & Other Platforms: eSpeak / eSpeak-ng
-    # ----------------------------------------------------
-    else:
-        # Attempt 1: pyttsx3 using espeak driver
-        try:
-            import pyttsx3
-            engine = pyttsx3.init("espeak")
-            engine.setProperty("rate", 150)
-            
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
-                temp_path = fp.name
-                
-            engine.save_to_file(clean_text, temp_path)
-            engine.runAndWait()
-            
-            if os.path.exists(temp_path) and os.path.getsize(temp_path) > 0:
-                with open(temp_path, "rb") as f:
-                    audio_bytes = f.read()
-                try:
-                    os.remove(temp_path)
-                except Exception:
-                    pass
-                return audio_bytes
-        except Exception as espeak_py_err:
-            logger.warning(
-                f"pyttsx3 with espeak driver encountered an issue: {espeak_py_err}. "
-                f"Falling back to direct eSpeak system command..."
-            )
-            if temp_path and os.path.exists(temp_path):
-                try:
-                    os.remove(temp_path)
-                except Exception:
-                    pass
-
-        # Attempt 2: Direct eSpeak / eSpeak-ng system CLI command
-        espeak_bin = shutil.which("espeak-ng") or shutil.which("espeak")
-        if espeak_bin:
-            try:
-                with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as fp:
-                    temp_path = fp.name
-                    
-                cmd = [espeak_bin, "-w", temp_path, "-s", "150", clean_text]
-                res = subprocess.run(
-                    cmd,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    timeout=10,
-                    text=True
-                )
-                
-                if res.returncode == 0 and os.path.exists(temp_path) and os.path.getsize(temp_path) > 0:
-                    with open(temp_path, "rb") as f:
-                        audio_bytes = f.read()
-                    return audio_bytes
-                else:
-                    logger.error(f"eSpeak CLI failed with returncode {res.returncode}: {res.stderr}")
-            except Exception as cli_err:
-                logger.error(f"Direct eSpeak command execution failed: {cli_err}")
+                audio_data = loop.run_until_complete(_synthesize_edge_tts(clean_text))
+                if audio_data:
+                    return audio_data
+            except Exception as e:
+                last_error = e
+                logger.warning(f"edge-tts synthesis attempt {attempt + 1} failed: {e}")
+                if attempt == 0:
+                    time.sleep(1)
+                    continue
             finally:
-                if temp_path and os.path.exists(temp_path):
-                    try:
-                        os.remove(temp_path)
-                    except Exception:
-                        pass
+                loop.close()
 
-        # If all Linux TTS attempts failed, raise a clear actionable error message
-        raise RuntimeError(
-            "eSpeak speech engine is not available on this server. "
-            "Please ensure 'packages.txt' is committed to the repository root with 'espeak', "
-            "'espeak-ng', and 'libespeak1' so Streamlit Community Cloud installs the speech engine."
-        )
+        if last_error:
+            raise RuntimeError(f"Text-to-Speech synthesis failed: {last_error}")
+        raise RuntimeError("Text-to-Speech synthesis produced empty audio.")
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(_run_in_isolated_thread)
+        return future.result(timeout=45)
