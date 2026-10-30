@@ -7,3 +7,5 @@ datasets
 nltk
 deep-translator
 edge-tts
+pyttsx3
+pywin32; sys_platform == 'win32'

@@ -32,6 +32,12 @@ def main():
         st.session_state["translated_lang"] = None
     if "tts_audio" not in st.session_state:
         st.session_state["tts_audio"] = None
+    if "tts_format" not in st.session_state:
+        st.session_state["tts_format"] = "audio/mp3"
+    if "tts_voice" not in st.session_state:
+        st.session_state["tts_voice"] = None
+    if "tts_is_online" not in st.session_state:
+        st.session_state["tts_is_online"] = True
     if "current_image_name" not in st.session_state:
         st.session_state["current_image_name"] = None
 
@@ -274,6 +280,9 @@ def main():
                     st.session_state["translated_caption"] = None
                     st.session_state["translated_lang"] = None
                     st.session_state["tts_audio"] = None
+                    st.session_state["tts_format"] = "audio/mp3"
+                    st.session_state["tts_voice"] = None
+                    st.session_state["tts_is_online"] = True
 
                 image = Image.open(uploaded_file).convert("RGB")
 
@@ -323,6 +332,9 @@ def main():
                         st.session_state["translated_caption"] = None
                         st.session_state["translated_lang"] = None
                         st.session_state["tts_audio"] = None
+                        st.session_state["tts_format"] = "audio/mp3"
+                        st.session_state["tts_voice"] = None
+                        st.session_state["tts_is_online"] = True
 
         # D. GENERATED CAPTION SECTION
         if st.session_state.get("caption"):
@@ -333,7 +345,7 @@ def main():
 
                 st.markdown(f'<div class="caption-box">{st.session_state["caption"]}</div>', unsafe_allow_html=True)
 
-                # English Neural TTS controls
+                # English TTS controls
                 col_tts_btn, col_tts_player = st.columns([1, 3], vertical_alignment="center")
                 with col_tts_btn:
                     tts_btn = st.button("Listen (English)", use_container_width=True)
@@ -341,14 +353,17 @@ def main():
                 if tts_btn:
                     with st.spinner("Synthesizing speech..."):
                         try:
-                            audio_bytes = generate_speech(st.session_state["caption"])
-                            st.session_state["tts_audio"] = audio_bytes
+                            tts_out = generate_speech(st.session_state["caption"])
+                            st.session_state["tts_audio"] = tts_out.audio_bytes
+                            st.session_state["tts_format"] = tts_out.format
+                            st.session_state["tts_voice"] = tts_out.voice_name
+                            st.session_state["tts_is_online"] = tts_out.is_online
                         except Exception as e:
                             st.error(f"Text-to-Speech Error: {e}")
 
                 with col_tts_player:
                     if st.session_state.get("tts_audio"):
-                        st.audio(st.session_state["tts_audio"], format="audio/mp3")
+                        st.audio(st.session_state["tts_audio"], format=st.session_state.get("tts_format", "audio/mp3"))
 
             # E. MULTILINGUAL TRANSLATION SECTION
             with st.container(border=True):
