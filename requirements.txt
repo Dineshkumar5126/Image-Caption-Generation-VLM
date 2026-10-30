@@ -1,0 +1,10 @@
+streamlit
+transformers
+torch
+torchvision
+Pillow
+datasets
+nltk
+deep-translator
+pyttsx3
+pywin32; sys_platform == 'win32'

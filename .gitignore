@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Large Model Weights and Extracted Checkpoints (>100MB)
+models/trained_model.zip
+models/trained_model_extracted/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Submission and Backup Archives
+Final_Submission_Image_Captioning.zip
+Image_Caption_Generation_Colab.zip
+*.zip
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Streamlit secrets (keep .streamlit/config.toml tracked)
+.streamlit/secrets.toml
+

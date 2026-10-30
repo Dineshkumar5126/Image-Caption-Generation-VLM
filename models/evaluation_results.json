@@ -1,0 +1,659 @@
+{
+    "metrics": {
+        "average_bleu_1": 0.5796469044513046,
+        "average_bleu_4": 0.1758550412212438,
+        "total_evaluated": 50
+    },
+    "examples": [
+        {
+            "image": "image_172.jpg",
+            "generated": "a little girl splashes in a fountain.",
+            "references": [
+                "A little girl with arms outstretched plays with others at a sprinkler park .",
+                "Children play in a water fountain .",
+                "Children playing in public waterspouts .",
+                "The two young girls , one wearing a skirt and the other wearing shorts , are playing in a bubbling fountain .",
+                "Two kids playing in a fountain at a water park ."
+            ],
+            "bleu_1": 0.7143,
+            "bleu_4": 0.2056
+        },
+        {
+            "image": "image_390.jpg",
+            "generated": "a man and a black dog are sitting on a mountaintop.",
+            "references": [
+                "A man and his dog in the mountains .",
+                "A man and his dog on the top of a mountain .",
+                "a man holding a camera is sitting on a mountain with a black dog .",
+                "A man poses with his black dog at the top of a mountain .",
+                "A man with a dog ."
+            ],
+            "bleu_1": 0.7471,
+            "bleu_4": 0.1942
+        },
+        {
+            "image": "image_110.jpg",
+            "generated": "a man and a woman walking down a street.",
+            "references": [
+                "A man without a shirt on is guiding a large brown horse pulling a green and yellow wagon .",
+                "A shirtless man escorts a horse pulling a carriage along a paved road .",
+                "A shirtless man leading a horse that is pulling a carriage .",
+                "Shirtless man leading a small horse-drawn covered wagon down a road",
+                "The shirtless man is walking the Shetland pony and carriage down the street ."
+            ],
+            "bleu_1": 0.6228,
+            "bleu_4": 0.0661
+        },
+        {
+            "image": "image_79.jpg",
+            "generated": "a biker rides down a road.",
+            "references": [
+                "A cyclist is riding a bicycle on a curved road up a hill .",
+                "A man in aerodynamic gear riding a bicycle down a road around a sharp curve .",
+                "A man on a mountain bike is pedaling up a hill .",
+                "Man bicycle up a road , while cows graze on a hill nearby .",
+                "The biker is riding around a curve in the road ."
+            ],
+            "bleu_1": 0.2897,
+            "bleu_4": 0.0446
+        },
+        {
+            "image": "image_464.jpg",
+            "generated": "a man in a black shirt is holding a microphone in his hand.",
+            "references": [
+                "A band performs in a dimly lit setting .",
+                "A female performer singing with her band .",
+                "A woman sings in a club with a guitarist behind her .",
+                "A woman sings into a microphone by a guy playing a guitar .",
+                "Woman singing with a microphone next to a person playing guitar ."
+            ],
+            "bleu_1": 0.3846,
+            "bleu_4": 0.0491
+        },
+        {
+            "image": "image_174.jpg",
+            "generated": "a woman sits on a bench in front of a wooden fence.",
+            "references": [
+                "A girl with a black purse sitting on a wooden bench .",
+                "A woman sits alone on a park bench in the sun .",
+                "A woman with a handbag is sitting on a wooden bench .",
+                "A young asian woman wearing long shorts and a gray collared t-shirt is sitting on a wooden bench .",
+                "A young woman with a black purse sits on a wooden bench ."
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.1736
+        },
+        {
+            "image": "image_483.jpg",
+            "generated": "a brown dog is running through the grass.",
+            "references": [
+                "A brown dog is walking on the grass beside a fence .",
+                "A brown dog trotting across a grassy , fenced-in yard .",
+                "A large brown dog in a fenced yard",
+                "Large dog is playing outdoors inside of a fence .",
+                "Lean dog trots through a sunny park in front of a chain link fence ."
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.3826
+        },
+        {
+            "image": "image_357.jpg",
+            "generated": "two dogs playing in the water.",
+            "references": [
+                "The two dogs are in the water retrieving a stick .",
+                "Two dogs are holding the same stick in their mouths while in the water .",
+                "Two dogs in the surf holding on to the same stick .",
+                "Two dogs in the water fighting over a stick .",
+                "Two dogs swimming with a stick ."
+            ],
+            "bleu_1": 0.5643,
+            "bleu_4": 0.1034
+        },
+        {
+            "image": "image_81.jpg",
+            "generated": "a black and white dog leaps to catch a tennis ball in his mouth.",
+            "references": [
+                "A black and white Border Collie catches a Frisbee in front of an audience .",
+                "a brown and white dog catches a Frisbee in it mouth in front of a group of people .",
+                "A brown and white dug jumping up to catch a Frisbee while an audience watches .",
+                "A dog jumps to catch a Frisbee , while many people watch .",
+                "An agile dog catches a Frisbee while a crowd of onlookers watches closely ."
+            ],
+            "bleu_1": 0.6429,
+            "bleu_4": 0.3079
+        },
+        {
+            "image": "image_412.jpg",
+            "generated": "a man sits on a bench in front of the ocean.",
+            "references": [
+                "A man and a dog sit on a bench near a body of water .",
+                "A man and his dog watch the sunset from a bench .",
+                "A man holding a dog sitting on a bench overlooking a lake .",
+                "a man holds his dog near a pond .",
+                "A man sits on a bench holding his dog and looking at the water ."
+            ],
+            "bleu_1": 0.6641,
+            "bleu_4": 0.4531
+        },
+        {
+            "image": "image_388.jpg",
+            "generated": "a black dog is running through the grass.",
+            "references": [
+                "A brown dog runs through the grass holding something in its mouth .",
+                "A brown dog runs with a toy in its mouth .",
+                "A small dog runs in a field , with a toy in its mouth .",
+                "Chocolate brown dog running on grass with something in its mouth .",
+                "The dog is running with food in his mouth ."
+            ],
+            "bleu_1": 0.5841,
+            "bleu_4": 0.1409
+        },
+        {
+            "image": "image_3.jpg",
+            "generated": "a man in a blue shirt is sitting in a chair outside.",
+            "references": [
+                "A man lays on a bench while his dog sits by him .",
+                "A man lays on the bench to which a white dog is also tied .",
+                "a man sleeping on a bench outside with a white and black dog sitting next to him .",
+                "A shirtless man lies on a park bench with his dog .",
+                "man laying on bench holding leash of dog sitting on ground"
+            ],
+            "bleu_1": 0.5,
+            "bleu_4": 0.0474
+        },
+        {
+            "image": "image_445.jpg",
+            "generated": "a woman in a blue shirt is sitting on the ground with a blue object in her hand.",
+            "references": [
+                "A girl sits with excavating tools examining a rock .",
+                "a lone scientist digging in the rock for artifacts .",
+                "A person with a brush looking at a large rock .",
+                "A woman brushes dust and dirt off a possible find .",
+                "A woman kneels in the dirt with paleontologist archeologist tools ."
+            ],
+            "bleu_1": 0.3889,
+            "bleu_4": 0.0372
+        },
+        {
+            "image": "image_414.jpg",
+            "generated": "a man and a woman stand on the beach next to the ocean.",
+            "references": [
+                "A dark haired woman wearing a brown jacket and fatigue bottoms and a balding man wearing a green sweater and blue jeans with a fishing pole , stand at the foot of the surf .",
+                "A man and woman fishing at the beach .",
+                "A man and a woman are standing on a shore while the man fishes in the choppy water .",
+                "A man is fishing in the ocean with a large woman walking to the left .",
+                "Man and woman fishing in the ocean ."
+            ],
+            "bleu_1": 0.6718,
+            "bleu_4": 0.3094
+        },
+        {
+            "image": "image_142.jpg",
+            "generated": "a boy swinging on a swing.",
+            "references": [
+                "A boy in a red and white shirt is on a swing .",
+                "A child looking back on a fast moving swing .",
+                "A litlle boy playing on a swing",
+                "A young boy in orange and white swings in a playground at a park .",
+                "A young boy plays on a swing ."
+            ],
+            "bleu_1": 0.5643,
+            "bleu_4": 0.1034
+        },
+        {
+            "image": "image_301.jpg",
+            "generated": "a group of kids sit on a swing.",
+            "references": [
+                "A child is in a harness with onlookers .",
+                "A girl is hooked to bungee cords as the crowd behind her watches .",
+                "A girl sits in a harness ready to lift up into the air and behind her is a sign that says \" active . \"",
+                "Little girls strapped into harnesses ready to jump up in the air .",
+                "The small girl is sitting in a harness , strapped to a tether , while others watch ."
+            ],
+            "bleu_1": 0.2206,
+            "bleu_4": 0.0292
+        },
+        {
+            "image": "image_229.jpg",
+            "generated": "a group of children playing with each other in a train station.",
+            "references": [
+                "A little girl holding hands with her ice skating instructor .",
+                "An older girl helps a younger girl ice skate .",
+                "The two girls hold hands with one another while they skate on the ice .",
+                "Two girls are ice skating with each other .",
+                "Two people go ice skating in a rink ."
+            ],
+            "bleu_1": 0.4167,
+            "bleu_4": 0.106
+        },
+        {
+            "image": "image_112.jpg",
+            "generated": "a girl splashs in the water.",
+            "references": [
+                "A small girl spins in the waves in the bright sun .",
+                "A young girl plays in shallow water .",
+                "A young girl wears a shirt and shorts as she plays in the ocean 's surf .",
+                "Girl running through the water near the shore .",
+                "The little girl splashes through the water ."
+            ],
+            "bleu_1": 0.4777,
+            "bleu_4": 0.0736
+        },
+        {
+            "image": "image_214.jpg",
+            "generated": "a black and white dog is running through a field.",
+            "references": [
+                "The two dogs are running through a field of flowers .",
+                "Two dogs are running through a field of pink flowers .",
+                "Two dogs bound over a flower-covered hill .",
+                "Two dogs playing in a misty field filled with purple flowers",
+                "Two gray dogs run through a field of pink heather ."
+            ],
+            "bleu_1": 0.2715,
+            "bleu_4": 0.0945
+        },
+        {
+            "image": "image_486.jpg",
+            "generated": "a group of people sit on a slide.",
+            "references": [
+                "A group of people are sitting in some rows of wooden seats .",
+                "A group of people seated in a line of seats at an event .",
+                "People sit in an auditorium with programs .",
+                "People sitting in rows of seats .",
+                "Students are sitting in an auditorium with notes out in front of them ."
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.4111
+        },
+        {
+            "image": "image_359.jpg",
+            "generated": "a black dog is laying on the carpet.",
+            "references": [
+                "A black and tan dog plays with a centipede toy .",
+                "A dog tags a nap on a rug near his favorite toy , a plush centipede .",
+                "A short long haired dog plays with a multi-colored stuffed toy centipede .",
+                "A small brown and black dog plays with a colorful caterpillar toy on a tan burbur carpet .",
+                "Yorkshire Terrier plays with multicolor centipede toy ."
+            ],
+            "bleu_1": 0.5,
+            "bleu_4": 0.0831
+        },
+        {
+            "image": "image_332.jpg",
+            "generated": "two black dogs playing in the water.",
+            "references": [
+                "Two big German Shephard dogs play in the water .",
+                "Two black dogs splash around on the beach .",
+                "Two dogs are playing with each other on a beach by the ocean .",
+                "Two dogs playing in water on the beach",
+                "Two dogs play together splashing in a lake"
+            ],
+            "bleu_1": 0.743,
+            "bleu_4": 0.252
+        },
+        {
+            "image": "image_366.jpg",
+            "generated": "a young boy in a blue shirt plays in a slide.",
+            "references": [
+                "A boy sits in a toy car while drinking from his sippy cup .",
+                "A toddler drinking from a cup in a toy car .",
+                "A toddler in a red toy car drinks from a juice cup",
+                "The boy sits in his toy car sipping from a cup .",
+                "The child sits in a toy car and drinks from a sippy cup ."
+            ],
+            "bleu_1": 0.4545,
+            "bleu_4": 0.0501
+        },
+        {
+            "image": "image_101.jpg",
+            "generated": "a boy in a yellow shirt and blue shorts is standing on a bed.",
+            "references": [
+                "A child leaping from bed to bed behind the back of a man .",
+                "A man is standing with his arms folded looking at something while the person behind him is jumping onto one of the two beds in the room .",
+                "a man wearing a yellow shirt standing in the middle of two beds that a boy is jumping on in the background",
+                "A young child jumping on the bed as a man looks the other way .",
+                "Man standing in the bedroom with little boy jumping into bed ."
+            ],
+            "bleu_1": 0.7143,
+            "bleu_4": 0.1136
+        },
+        {
+            "image": "image_287.jpg",
+            "generated": "a boy in a red shirt is sitting on a bench in front of a truck.",
+            "references": [
+                "A boy stands beside a railing at a go kart track .",
+                "A little boy grinning with a go cart in the background .",
+                "A little boy in a red shirt is making a face into the camera while waiting at a go cart track .",
+                "A little boy is standing in line for go-karts .",
+                "The small boy is excited he will be riding a go-cart ."
+            ],
+            "bleu_1": 0.5625,
+            "bleu_4": 0.349
+        },
+        {
+            "image": "image_13.jpg",
+            "generated": "a brown dog is running after a sprinkler.",
+            "references": [
+                "A brown dog chases the water from a sprinkler on a lawn .",
+                "a brown dog plays with the hose .",
+                "A brown dog running on a lawn near a garden hose",
+                "A dog is playing with a hose .",
+                "Large brown dog running away from the sprinkler in the grass ."
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.1809
+        },
+        {
+            "image": "image_308.jpg",
+            "generated": "two dogs playing in the grass.",
+            "references": [
+                "One dog shaking the water off , getting a second dog wet",
+                "Two dogs are shaking off water while playing with a ball on the edge of a body of water .",
+                "Two dogs shake off water in an area with very little vegetation .",
+                "Two dogs shaking off water droplets on a beach .",
+                "Two dogs shaking themselves dry on the sand ."
+            ],
+            "bleu_1": 0.5054,
+            "bleu_4": 0.0658
+        },
+        {
+            "image": "image_258.jpg",
+            "generated": "a man in a blue shirt is rock - climbing.",
+            "references": [
+                "A man is climbing up a wall",
+                "A man wearing no shirt climbs the side of a large rock .",
+                "a shirtless man climbing up the rock wall with rope safety lines",
+                "Man without a shirt is climbing a rock .",
+                "There is a rock climber holding on and climbing to the top of a very large rock ."
+            ],
+            "bleu_1": 0.6,
+            "bleu_4": 0.0699
+        },
+        {
+            "image": "image_119.jpg",
+            "generated": "a man and a black dog are laying on a white blanket.",
+            "references": [
+                "A man in a red shirt and glasses is bending down towards a small dog on a blanket with several stuffed animals .",
+                "A man in a red shirt is giving toys to a small dog .",
+                "A man is playing tug of war with his dog .",
+                "A man playing with a black dog on a white blanket .",
+                "A man playing with his dog on the blanket on the floor ."
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.1659
+        },
+        {
+            "image": "image_111.jpg",
+            "generated": "a man in a green jacket is spraying water from a sprinkler while another man watches.",
+            "references": [
+                "A boy hits a ball off of a tee ball into to net .",
+                "A child practices hitting a baseball into a net , while two adult men watch .",
+                "A man holds a net while a boys bats a ball into it .",
+                "The man is holding the net for the boy playing baseball .",
+                "Three people put up a batting cage ."
+            ],
+            "bleu_1": 0.375,
+            "bleu_4": 0.0342
+        },
+        {
+            "image": "image_47.jpg",
+            "generated": "a boy rides a dirt bike down the road.",
+            "references": [
+                "A child with a helmet on his head rides a bike .",
+                "A little boy rides a bike down a hill on a miniature dirt bike .",
+                "A young boy in a helmet rides a bike on the road .",
+                "The little boy rides his bicycle in a race .",
+                "The young boy pedals quickly at a BMX race ."
+            ],
+            "bleu_1": 0.7954,
+            "bleu_4": 0.1614
+        },
+        {
+            "image": "image_15.jpg",
+            "generated": "a black and white dog is running through the grass.",
+            "references": [
+                "a black and white dog jumping in the air to get a toy .",
+                "A black and white dog jumps up towards a yellow toy .",
+                "A dog leaps to catch a ball in a field .",
+                "A white dog is trying to catch a ball in midair over a grassy field .",
+                "The white dog is playing in a green field with a yellow toy ."
+            ],
+            "bleu_1": 0.6334,
+            "bleu_4": 0.4393
+        },
+        {
+            "image": "image_16.jpg",
+            "generated": "a man and a woman sit on a bench under a tree.",
+            "references": [
+                "A couple and an infant , being held by the male , sitting next to a pond with a near by stroller .",
+                "A couple sit on the grass with a baby and stroller .",
+                "A couple with their newborn baby sitting under a tree facing a lake .",
+                "A man and woman care for an infant along the side of a body of water .",
+                "Couple with a baby sit outdoors next to their stroller ."
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.1319
+        },
+        {
+            "image": "image_216.jpg",
+            "generated": "two motorcycle bikers on the road.",
+            "references": [
+                "A man in street racer armor is examining the tire of another racer 's motorbike .",
+                "The two racers drove the white bike down the road .",
+                "Two motorists are riding along on their vehicle that is oddly designed and colored .",
+                "Two people are in a small race car driving by a green hill .",
+                "Two people in racing uniforms in a street car ."
+            ],
+            "bleu_1": 0.2567,
+            "bleu_4": 0.0276
+        },
+        {
+            "image": "image_302.jpg",
+            "generated": "two children playing in the sand.",
+            "references": [
+                "Four children are playing on a hill of sand .",
+                "Four children playing in the sand at a beach .",
+                "Four children playing on a sand dune .",
+                "Four kids are sliding down a mountain of sand .",
+                "Four kids rolling and sliding down a sand dune ."
+            ],
+            "bleu_1": 0.4777,
+            "bleu_4": 0.3641
+        },
+        {
+            "image": "image_44.jpg",
+            "generated": "two black and white dogs playing in the sand.",
+            "references": [
+                "A white and black dog and a brown dog in sandy terrain .",
+                "A woolly dog chases a Doberman on a beach .",
+                "One dog is chasing another one on the beach .",
+                "The two large dogs are running through sand .",
+                "Two large dogs chasing each other at the beach ."
+            ],
+            "bleu_1": 0.7778,
+            "bleu_4": 0.039
+        },
+        {
+            "image": "image_279.jpg",
+            "generated": "a brown dog is laying on a blue blanket.",
+            "references": [
+                "A brown dog laying on a blue cover .",
+                "A brown dog laying on a blue sheet .",
+                "A dog lying on a blue cloth dog bed .",
+                "The brown dog is laying down on a blue sheet .",
+                "The dog is laying on a bed with a blue sheet ."
+            ],
+            "bleu_1": 0.8889,
+            "bleu_4": 0.8165
+        },
+        {
+            "image": "image_456.jpg",
+            "generated": "a man in a blue shirt is looking at his reflection in a window.",
+            "references": [
+                "A man in a black jacket is has a white headphone in his ear .",
+                "A man in a black jacket is in front of a map .",
+                "a man listening to his iPod , looks at the subway maps .",
+                "A man with a jacket wears headphones standing in front of a directory .",
+                "A young man is wearing a black jacket and has white earphones in his ears ."
+            ],
+            "bleu_1": 0.6429,
+            "bleu_4": 0.2177
+        },
+        {
+            "image": "image_496.jpg",
+            "generated": "a man in a red jacket is standing on a bridge overlooking the ocean.",
+            "references": [
+                "A male and a female are leaning against railing looking off with the ocean in the background",
+                "A man and a woman are looking at the view on a stairway by the sea .",
+                "Man and woman watching something near rocky ocean surf .",
+                "two people leaning over a green railing with the ocean in the background",
+                "Two people on a walkway over rushing water ."
+            ],
+            "bleu_1": 0.5,
+            "bleu_4": 0.0491
+        },
+        {
+            "image": "image_346.jpg",
+            "generated": "a white dog splashing in the water.",
+            "references": [
+                "A wet white dog is splashing in the water with a stick in its mouth .",
+                "A white dog is in the water .",
+                "A white dog treads the water with sticks in its mouth .",
+                "A white dog with red collar splashes in the water .",
+                "The dog is wading through shallow water while holding something in its mouth ."
+            ],
+            "bleu_1": 0.743,
+            "bleu_4": 0.2383
+        },
+        {
+            "image": "image_52.jpg",
+            "generated": "two dogs playing with each other.",
+            "references": [
+                "A bulldog , a sheep dog , and a boxer standing in a yard .",
+                "A large brown dog is pushing a small Boston terrier with his face while anouther dog watches .",
+                "A large skinny dog stands near two smaller dogs int the dirt .",
+                "There are three dogs starring at a ball in the middle of them .",
+                "Three dogs of various sizes ."
+            ],
+            "bleu_1": 0.5,
+            "bleu_4": 0.0537
+        },
+        {
+            "image": "image_377.jpg",
+            "generated": "two bikers are riding down the road.",
+            "references": [
+                "The two ladies are riding bicycles near the beach .",
+                "Two women in summer wear ride beach cruiser tricycles on the concrete near the beach .",
+                "Two women on low riding three-wheeled vehicles with baskets .",
+                "two women ride their three wheelers .",
+                "Two women riding tricycles ."
+            ],
+            "bleu_1": 0.5714,
+            "bleu_4": 0.0831
+        },
+        {
+            "image": "image_71.jpg",
+            "generated": "a man in a blue shirt is standing on top of a cliff.",
+            "references": [
+                "A boy in yellow shorts is standing on top of a cliff .",
+                "A boy wearing blue and yellow walking on a cliff edge .",
+                "A little boy standing high in the air on a rock .",
+                "A young child is standing alone on some jagged rocks .",
+                "Child stands near edge of cliff ."
+            ],
+            "bleu_1": 0.6923,
+            "bleu_4": 0.4212
+        },
+        {
+            "image": "image_114.jpg",
+            "generated": "a boy in a blue shirt is doing a handstand in the air.",
+            "references": [
+                "A child jumping into a lake in a wooded area while another child plays on the shore .",
+                "A child jumps into the water with his sneakers on .",
+                "A kid jumping into a pool of water .",
+                "Little boy in sneakers jumping into water .",
+                "The man takes a leap into the water with his shoes on ."
+            ],
+            "bleu_1": 0.4615,
+            "bleu_4": 0.0514
+        },
+        {
+            "image": "image_125.jpg",
+            "generated": "a boy in a blue shirt and a baseball cap is looking at the camera.",
+            "references": [
+                "A boys baseball team wear their uniforms .",
+                "A small boy smiles as he stands with others wearing the same black hats .",
+                "Children sporting their Florida Dolphin caps .",
+                "The boys are all wearing the same baseball hats .",
+                "Three boys wearing Florida Marlins hats ."
+            ],
+            "bleu_1": 0.2667,
+            "bleu_4": 0.0187
+        },
+        {
+            "image": "image_140.jpg",
+            "generated": "a group of hikers are walking down a path through the woods.",
+            "references": [
+                "A group of climbers begin up a sheer rock face .",
+                "A group of rock climbers climb a rock wall in a forest .",
+                "Many people are climbing the mountain surrounded by pretty green trees .",
+                "People at a distance trying to climb a cliff .",
+                "The flat side of a large , rocky mountain ."
+            ],
+            "bleu_1": 0.5,
+            "bleu_4": 0.1003
+        },
+        {
+            "image": "image_379.jpg",
+            "generated": "a girl in a red and white shirt swinging on a rope net.",
+            "references": [
+                "A girl climbing a rope wall .",
+                "A girl in a harness on a rope climbing wall .",
+                "A girl is climbing up a rope ladder with a harness .",
+                "A person is climbing and has nearly reached the sign at the top",
+                "A young girl suspended by rope next to a mesh ."
+            ],
+            "bleu_1": 0.6154,
+            "bleu_4": 0.2892
+        },
+        {
+            "image": "image_12.jpg",
+            "generated": "a person in a red shirt is rock climbing.",
+            "references": [
+                "A collage of one person climbing a cliff .",
+                "A group of people are rock climbing on a rock climbing wall .",
+                "A group of people climbing a rock while one man belays",
+                "Seven climbers are ascending a rock face whilst another man stands holding the rope .",
+                "Several climbers in a row are climbing the rock while the man in red watches and holds the line ."
+            ],
+            "bleu_1": 0.6667,
+            "bleu_4": 0.0667
+        },
+        {
+            "image": "image_57.jpg",
+            "generated": "a brown dog is running down the road.",
+            "references": [
+                "a brown dog running down a paved pathway",
+                "A brown dog running next to grass .",
+                "A dog is running down a road .",
+                "A light brown dog runs down a path happily .",
+                "Energetic brown dog running"
+            ],
+            "bleu_1": 0.75,
+            "bleu_4": 0.4811
+        },
+        {
+            "image": "image_327.jpg",
+            "generated": "a man in a red and black outfit is holding a red ribbon in his hand.",
+            "references": [
+                "A boy wears a ninja suit and strikes a pose .",
+                "A child in a black overall karate costume with a red front and yellow bird on it , attacking .",
+                "A masked person in a fight stance .",
+                "A person in costume doing martial arts .",
+                "The person is wearing a black and red outfit and is practicing combat ."
+            ],
+            "bleu_1": 0.5625,
+            "bleu_4": 0.0451
+        }
+    ]
+}
