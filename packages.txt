@@ -1,0 +1,4 @@
+espeak
+espeak-ng
+libespeak1
+
